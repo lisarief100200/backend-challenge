@@ -1,6 +1,8 @@
 package api
 
-import "encoding/json"
+import (
+	"encoding/json"
+)
 
 type CustomerRequest struct {
 	CustomerName    string      `json:"customer_name" binding:"required"`

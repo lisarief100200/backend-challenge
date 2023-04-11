@@ -6,6 +6,7 @@ import (
 	"backend-challenge/shop"
 	"encoding/json"
 	"fmt"
+	"time"
 )
 
 type CustomerUsecase interface {
@@ -38,6 +39,7 @@ func (u *customerUsecase) Create(customerRequest req.CustomerRequest) (shop.Cust
 		CustomerAddress: customerRequest.CustomerAddress,
 		TotalBuy:        int(total_buy),
 		CreatorId:       int(creator_id),
+		CreatedAt:       time.Now(),
 	}
 	newCustomer, err := u.customerRepository.Create(customers)
 	return newCustomer, err
